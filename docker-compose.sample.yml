@@ -3,13 +3,7 @@ services:
         container_name: wyze-bridge
         restart: unless-stopped
         image: mrlt8/wyze-bridge:latest
-        ports:
-            - 1935:1935 # RTMP
-            - 8554:8554 # RTSP
-            - 8888:8888 # HLS
-            - 8889:8889 #WebRTC
-            - 8189:8189/udp # WebRTC/ICE
-            - 5000:5000 # WEB-UI
+        network: host
         environment:
             # [OPTIONAL] Credentials can be set in the WebUI
             # API Key and ID can be obtained from the wyze dev portal: 
